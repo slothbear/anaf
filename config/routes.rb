@@ -1,9 +1,7 @@
 Anaf::Application.routes.draw do
   resources :doctors
-
-
   resources :specialties
-
+  root to: "doctors#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
