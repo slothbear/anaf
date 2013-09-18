@@ -15,9 +15,15 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
     <%= f.label :specialty %><br />
-    <%= f.text_field :specialty %>
+    <%= f.collection_select :specialty_id, Specialty.all, :id, :name, prompt: true %>
+  </div>
+
+  <div>
+    . . . plus 15 other fields about the doctor . . .
+    <p/>
   </div>
   <div class="actions">
     <%= f.submit %>
