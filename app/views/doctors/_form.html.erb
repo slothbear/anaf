@@ -16,20 +16,25 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :specialty %><br />
-    <%= f.collection_select :specialty_id,
-      Specialty.order("name ASC"), :id, :name,
-      {include_blank: true},
-      {class: 'chosen-select'}
-    %>
-  </div>
+  <%= f.fields_for :specialty do |specialty_form| %>
+    <div class="field">
+      <%= specialty_form.label :specialty %><br />
+      <%= specialty_form.collection_select :id,
+        Specialty.order("name ASC"),
+        :id, :name,
+        {include_blank: true},
+        {class: 'chosen-select'}
+      %>
+    </div>
+  <% end %>
 
   <div>
     . . . plus 15 other fields about the doctor . . .
     <p/>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
