@@ -3,12 +3,19 @@ class Doctor < ActiveRecord::Base
   accepts_nested_attributes_for :specialty
   attr_accessible :name, :specialty_attributes
 
-  def specialty_attributes=(specialty_attrs)
-    s_id = specialty_attrs.delete(:id)
-    if integer?(s_id)
-      self.specialty = Specialty.find(s_id)
+  # id cannot be mass-assigned, so the record must be found manually.
+  # http://stackoverflow.com/questions/9864501/recordnotfound-with-accepts-nested-attributes-for-and-belongs-to
+
+  # If the koenpunt/chosen select menu has created a new option, the text is
+  # located in the 'id' param. Move it to 'name' so accepts_nested_attributes_for
+  # can create the record and association if everything suceeds.
+
+  def specialty_attributes=(attrs)
+    selected_specialty = attrs[:id]
+    if integer?(selected_specialty)
+      self.specialty = Specialty.find(selected_specialty)
     else
-      self.specialty = Specialty.new(name: s_id)
+      self.specialty = Specialty.new(name: selected_specialty)
     end
   end
 
