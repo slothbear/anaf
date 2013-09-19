@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/slothbear/chosen-rails.git
+  revision: 73c08be45d71e03d67c19be1a70d7c48f626903e
+  specs:
+    chosen-rails (1.0.0)
+      coffee-rails (>= 3.2)
+      compass-rails (>= 1.0)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -30,6 +40,7 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     builder (3.0.4)
+    chunky_png (1.2.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -37,8 +48,15 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     erubis (2.7.0)
     execjs (2.0.1)
+    fssm (0.2.10)
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
@@ -102,6 +120,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chosen-rails!
   coffee-rails (~> 3.2.1)
   jquery-rails
   rails (= 3.2.13)

@@ -18,7 +18,11 @@
 
   <div class="field">
     <%= f.label :specialty %><br />
-    <%= f.collection_select :specialty_id, Specialty.all, :id, :name, prompt: true %>
+    <%= f.collection_select :specialty_id,
+      Specialty.order("name ASC"), :id, :name,
+      {include_blank: true},
+      {class: 'chosen-select'}
+    %>
   </div>
 
   <div>
