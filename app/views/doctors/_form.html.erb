@@ -17,7 +17,7 @@
   </div>
 
   <div class="field">
-    <%= f.fields_for :specialty do |specialty_form| %>
+    <%= f.fields_for :specialty, include_id: false do |specialty_form| %>
       <%= specialty_form.label :specialty %><br />
       <%= specialty_form.collection_select :id,
         Specialty.order("name ASC"),
@@ -27,6 +27,9 @@
       %>
     <% end %>
   </div>
+  <!--
+  Specialty could not be changed when editing because the hidden id field generated
+  after the select field overrode the value. http://stackoverflow.com/questions/10808731/stop-rails-from-generating-hidden-field-for-fields-for-method -->
 
   <div>
     . . . plus 15 other fields about the doctor . . .
