@@ -11,20 +11,9 @@ class Doctor < ActiveRecord::Base
   # can create the record and association if everything suceeds.
 
   def specialty_attributes=(attrs)
-    selected_specialty = attrs[:id]
-    if integer?(selected_specialty)
-      self.specialty = Specialty.find(selected_specialty)
-    else
-      self.specialty = Specialty.new(name: selected_specialty)
-    end
+    self.specialty =
+      Specialty.find_by_id(attrs[:id]) ||
+      Specialty.new(name: attrs[:id])
   end
 
-  private
-
-  # THANKS to Sarah Mei [1].
-  def integer?(value)
-    value.to_i.to_s == value
-  end
-
-  # [1] http://stackoverflow.com/questions/1235863/test-if-a-string-is-basically-an-integer-in-quotes-using-ruby
 end
