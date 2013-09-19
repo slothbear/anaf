@@ -2,7 +2,7 @@ class DoctorsController < ApplicationController
   # GET /doctors
   # GET /doctors.json
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb

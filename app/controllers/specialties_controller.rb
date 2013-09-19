@@ -2,7 +2,7 @@ class SpecialtiesController < ApplicationController
   # GET /specialties
   # GET /specialties.json
   def index
-    @specialties = Specialty.all
+    @specialties = Specialty.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
