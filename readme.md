@@ -7,7 +7,7 @@ with Rails. Chosen provides a drop-in
 jQuery replacement for the standard html SELECT menu.
 
 This demo uses the
-[Koenpunt fork](https://github.com/harvesthq/chosen/pull/166)
+[koenpunt fork](https://github.com/harvesthq/chosen/pull/166)
 of Chosen, which allows new options
 to be entered in the select menu.
 
