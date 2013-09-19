@@ -23,10 +23,11 @@
         Specialty.order("name ASC"),
         :id, :name,
         {include_blank: true},
-        {class: 'chosen-select'}
+        {class: 'chosen-select', 'data-placeholder' => 'Select specialty'}
       %>
     <% end %>
   </div>
+
   <!--
   Specialty could not be changed when editing because the hidden id field generated
   after the select field overrode the value. http://stackoverflow.com/questions/10808731/stop-rails-from-generating-hidden-field-for-fields-for-method -->
