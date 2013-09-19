@@ -16,8 +16,8 @@
     <%= f.text_field :name %>
   </div>
 
-  <%= f.fields_for :specialty do |specialty_form| %>
-    <div class="field">
+  <div class="field">
+    <%= f.fields_for :specialty do |specialty_form| %>
       <%= specialty_form.label :specialty %><br />
       <%= specialty_form.collection_select :id,
         Specialty.order("name ASC"),
@@ -25,8 +25,8 @@
         {include_blank: true},
         {class: 'chosen-select'}
       %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
   <div>
     . . . plus 15 other fields about the doctor . . .
